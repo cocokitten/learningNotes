@@ -1,10 +1,10 @@
-###**Tensorflow中的线性回归**
+### Tensorflow中的线性回归
 
 该线性回归的例子来自于[Stanford的课程CS20SI](https://web.stanford.edu/class/cs20si/syllabus.html)
 
 接下来，我们将在Tensorflow中，根据问题实现一个非常简单易懂的线性回归模型。
 
-####**问题：**
+#### 1、问题：
 
 我们经常听到，保险公司通过附近的火灾和盗窃等因素来计算邻里的危险程度。那么，火灾和盗窃数量之间是否有关系，如果有，是否可以找到这个关系。
 
@@ -12,14 +12,14 @@
 
 给定关系，如果我们获得某个地区的火灾数量，我们能否预测这个地区的盗窃数量。
 
-####**数据集：**
+#### 2、数据集：
 Name：[Fire and Theft in Chicago](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/slr05.html)
 
 X =  fires per 1000 housing units
 Y =  thefts per 1000 population
 
 
-####**解决方案：**
+#### 3、解决方案：
 
 首先，假设火灾和盗窃之间的关系是线性的：
 我们需要找到标量参数w和b，使用均方误差作为损失函数。
