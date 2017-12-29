@@ -58,10 +58,13 @@ print('%-6.2f|%06.2f|%+6.1f' %(x,x,x))
 #1.23  |001.23|  +1.2
 ```
 <br>
-### 二 字符串格式化调用方法：
-**format** 方法使用主体字符串作为模板。在主题字符串中，花括号通过位置（例如， {1}）或关键字（例如，{food}）指出替换目标及将要插入的参数。
+
+### 二、字符串格式化调用方法：
+
+format方法使用主体字符串作为模板。在主题字符串中，花括号通过位置（例如， {1}）或关键字（例如，{food}）指出替换目标及将要插入的参数。
 
 #### 通过位置：
+
 ```python
 # By position
 template = '{0},{1} and {2}'
@@ -71,7 +74,9 @@ print(template.format('first','second','third'))
 #first,second and third
 
 ```
+
 #### 通过关键字：
+
 ```python
 # By Keyword
 template = '{food},{fruit} and {vegetable}'
