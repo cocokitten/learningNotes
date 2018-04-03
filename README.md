@@ -19,5 +19,10 @@
 1. 快速排序（递归）
 
 * [二分查找_c++](https://github.com/cocokitten/learningNotes/blob/master/algorithm/SearchMethods.cpp)
+
+## 三、数据结构
 * [BinaryTree](https://github.com/cocokitten/learningNotes/blob/master/DataStructure/BinaryTree.cpp)
 二叉树的创建、三种遍历方法、二叉树中节点的个数、二叉树的深度、判断两颗二叉树是否相等
+
+* [LinkedList](https://github.com/cocokitten/learningNotes/blob/master/DataStructure/LinkedList.cpp)
+链表的创建、单链表反转、合并有序链表
