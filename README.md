@@ -17,3 +17,7 @@
 1. 选择排序
 1. 堆排序
 1. 快速排序（递归）
+
+* [二分查找_c++](https://github.com/cocokitten/learningNotes/blob/master/algorithm/SearchMethods.cpp)
+* [BinaryTree](https://github.com/cocokitten/learningNotes/blob/master/DataStructure/BinaryTree.cpp)
+二叉树的创建、三种遍历方法、二叉树中节点的个数、二叉树的深度、判断两颗二叉树是否相等
