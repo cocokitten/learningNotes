@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 class SortMethods
@@ -16,6 +17,7 @@ public:
 	size_t PartSort(vector<int>&arr, int left, int right);  //5快速排序（递归）
 	void QuickSort(vector<int>&arr,int left, int right);
 
+	bool MergeSort(int a[], int n);    //6归并排序	
 
 	void display(vector<int> arr);
 	void swap(int &a, int &b);	
@@ -137,6 +139,51 @@ void SortMethods::QuickSort(vector<int>&arr,int left,int right) {
 	}
 }
 //--------------------------------------------------------------------------------
+//归并排序
+//最坏时间复杂度:O(N* lgN)
+//最优时间复杂度:O(N)
+//平均时间复杂度:O(N* lgN)
+
+//空间复杂度:O(N)
+void mergearray(int a[], int first, int mid, int last, int temp[])
+{
+	int i = first, j = mid + 1;
+	int m = mid, n = last;
+	int k = 0;
+	while (i <= m && j <= n)
+	{
+		if (a[i] <= a[j])
+			temp[k++] = a[i++];
+		else
+			temp[k++] = a[j++];
+	}
+	while (i <= m)
+		temp[k++] = a[i++];
+	while (j <= n)
+		temp[k++] = a[j++];
+	for (i = 0; i < k; i++)
+		a[first + i] = temp[i];
+}
+void mergesort(int a[], int first, int last, int temp[])
+{
+	if (first < last)
+	{
+		int mid = (first + last) / 2;
+		mergesort(a, first, mid, temp);         //左边有序
+		mergesort(a, mid + 1, last, temp);      //右边有序
+		mergearray(a, first, mid, last, temp);  //再将二个有序数列合并
+	}
+}
+bool SortMethods::MergeSort(int a[], int n) {
+
+	int *p = new int[n];
+	if (p == NULL)
+		return false;
+	mergesort(a, 0, n - 1, p);
+	delete[] p;
+	return true;
+}
+//--------------------------------------------------------------------------------
 void SortMethods::display(vector<int> arr)
 {
 	for (int i = 0; i < arr.size(); i++)
@@ -162,5 +209,6 @@ int main() {
 	//a.HeapSort(arr);
 	a.QuickSort(arr, 0, (arr.size() - 1)); 
 	a.display(arr);
+
     return 0;
 }
