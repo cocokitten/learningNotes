@@ -1,5 +1,6 @@
 
 #include<iostream>
+#include <queue>
 using namespace std;
 
 typedef char datatype;
@@ -28,7 +29,6 @@ void createBinaryTree(BinaryNode *&node) {
 }
 //-----------------------------------------------------------------
 //递归实现
-
 // 先序遍历
 void preOrderTraverse(BinaryNode *node) {
 	if (node == nullptr) {
@@ -68,7 +68,6 @@ int getNodeNum(BinaryNode* pRoot) {
 }
 //-----------------------------------------------------------------
 //求二叉树的深度
-
 int getDepth(BinaryNode* pRoot) {
 
 	if (pRoot == nullptr)return 0;
@@ -93,9 +92,36 @@ bool is_equal(BinaryNode* pRoot1,BinaryNode* pRoot2) {
 	return is_equal(pRoot1->lchild, pRoot2->lchild) && is_equal(pRoot1->rchild, pRoot2->rchild);
 }
 //-----------------------------------------------------------------
+//判断是否为完全二叉树
+bool is_complete(BinaryNode *root){
+
+	if(root == NULL)return true;
+	if(root->lchild == NULL && root->rchild == NULL)return true;
+
+	queue<BinaryNode *> q;  
+	q.push(root);
+
+	BinaryNode * ptr = NULL;
+	while(q.front()!= NULL ){
+		ptr = q.front();
+		q.push(ptr->lchild);
+		q.push(ptr->rchild);
+		q.pop();
+	}
+
+	while(!q.empty()){
+		ptr = q.front();
+		if(ptr != NULL) return false;
+		q.pop();
+	}
+	return true;
+}
+//-----------------------------------------------------------------
 int main(int argc, const char * argv[]) {
-	// 输入示例：AB#C##D##
+	// 输入示例：AB#C##D##(不完全二叉树)
+	//abd###c##(完全二叉树)
 	//abc#e##d##f##
+
 
 	printf("请输入一棵二叉树(#表示无子节点):\n");
 	BinaryNode *tree1 = new BinaryNode();
@@ -105,7 +131,8 @@ int main(int argc, const char * argv[]) {
 	createBinaryTree(tree2);
 
 	cout << is_equal(tree1, tree2) << endl;
-	
+	cout << is_complete(tree1) << endl;
+
 	//printf("先序遍历:\n");
 	//preOrderTraverse(tree);
 	//printf("中序遍历:\n");
